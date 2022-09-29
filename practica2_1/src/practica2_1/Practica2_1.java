@@ -55,8 +55,7 @@ class Materia {
 class Promedio {
 
     Double calif1, calif2, calif3, calif4, promedio;
-    String estatus;
-
+    String estatus, promedioFinalEnString;;
     void leerDatos() {
         calif1 = Double.parseDouble(JOptionPane.showInputDialog("Introduce la calificacion del parcial 1:"));
         calif2 = Double.parseDouble(JOptionPane.showInputDialog("Introduce la calificacion del parcial 2:"));
@@ -73,6 +72,17 @@ class Promedio {
         } else {
             estatus = "REPROBADO";
         }
+        //A partir de aqui es el codigo para mostrar el promedio en texto
+        int promedioTruncado;
+        promedioTruncado = promedio.intValue();
+        
+        switch (promedioTruncado){
+            case 0:
+                promedioFinalEnString = "Cero";
+                break;
+        }
+        
+        
     }
 
     String mostrarDatos() {
@@ -88,7 +98,7 @@ class Boleta {
     Alumno alumno1 = new Alumno();
     Promedio promedio1 = new Promedio();
     Materia materia1 = new Materia();
-
+    
     void leerDatos() {
         alumno1.leerDatos();
         materia1.leerDatos();
@@ -98,10 +108,11 @@ class Boleta {
     void calcularPromedios(){
         promedio1.calcularPromedio();
     }
+
     
     String mostrarDatos(){
         String variableParaMostrarDatos;
-        variableParaMostrarDatos = "Boleta de calificaciones \n"+alumno1.mostrarDatos()+"\n"+materia1.mostrarDatos()+"\n"+promedio1.mostrarDatos()+"\n El alumno esta: "+promedio1.estatus;
+        variableParaMostrarDatos = "Boleta de calificaciones \n"+alumno1.mostrarDatos()+"\n"+materia1.mostrarDatos()+"\n"+promedio1.mostrarDatos()+"\n El alumno esta: "+promedio1.estatus+"\nTu promedio final es: "+promedio1.promedioFinalEnString;
         return(variableParaMostrarDatos);
     }
 }
