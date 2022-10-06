@@ -1,0 +1,217 @@
+public class Inicio {
+
+    public static void main(String[] args) {
+     
+            int [][] mat1= {{5,9,3,0},{9,5,8,4},{3,8,4,1},{0,4,1,3}};
+            int [][] mat2= {{4,1,4,2,0},{5,2,5,9,6},{-1,-4,-2,-8,-3},{5,3,2,1,4},{12,14,11,21,15}};
+            int [][] mat3= {{4,1,2,0},{5,2,9,6},{-1,-4,-8,-3}};
+            
+            Metodos me=new Metodos();
+            int [][] mat11=new int[mat1.length][mat1[0].length];
+            
+            System.out.println("Matriz 1");
+            me.imprimir(mat1);
+  /*          me.columnasInve(mat1, mat11);
+            System.out.println("Matriz 1 Invertida las columnas");
+            me.imprimir(mat11);
+            me.maximosRenglo(mat1);
+            
+            
+            int [][] mat22=new int[mat2.length][mat2[0].length];
+            
+            System.out.println("Matriz 2");
+            me.imprimir(mat2);
+            me.columnasInve(mat2, mat22);
+            System.out.println("Matriz 2 Invertida las columnas");
+            me.imprimir(mat22);
+            me.maximosRenglo(mat2);
+            
+            int [][] mat33=new int[mat3.length][mat3[0].length];
+            
+            System.out.println("Matriz 3");
+            me.imprimir(mat3);
+            me.columnasInve(mat3, mat33);
+            System.out.println("Matriz 1 Invertida las columnas");
+            me.imprimir(mat33);
+            me.maximosRenglo(mat3);
+                        
+            
+            System.exit(0);
+            
+         // examen 2
+            me.renglonesInve(mat1, mat11);
+            System.out.println("Matriz 1 Invertida los renglomes");
+            me.imprimir(mat11);
+            me.matrizSimetrica(mat1);
+            
+            System.exit(0);
+     
+         // examen 3
+            me.triangularInferios(mat1, mat11);
+            System.out.println("Matriz 1 Triangular inferior");
+            me.imprimir(mat11);
+            me.maxMin(mat1);
+   */     
+         // examen 4
+            me.triangularSuperior(mat1, mat11);
+            System.out.println("Matriz 1 Triangular Superior");
+            me.imprimir(mat11);
+            me.maximosColumna(mat1);
+     }
+
+}
+class Metodos
+{
+      void imprimir(int [][]mat){   
+
+          for (int i=0; i <mat.length; i++) {
+            for (int j=0; j < mat[i].length; j++) {
+                System.out.print(mat[i][j]+"\t");
+            }
+            System.out.println("");
+           }  
+      }
+      void columnasInve(int [][] mat,int [][] nvaMat)
+      {
+             for(int i=0;i<mat.length;i++)
+             {
+                  for(int k=0,m=mat[i].length-1;k<mat[i].length;k++,m--)
+                  {
+                      nvaMat[i][m]=mat[i][k];
+                  }
+             }
+      }
+      void maximosRenglo(int [][] mat)
+      {
+         int max,c;
+         for(int i=0;i<mat.length;i++)
+         {
+            max=mat[i][0];
+            c=0;
+            for(int k=0;k<mat[i].length;k++)
+            {
+               if(max<mat[i][k])
+               {
+                  max=mat[i][k];
+                  c=k;
+               }
+            }
+            System.out.println("El valor maximo del renglon "+i+"es "+max+" columna "+c);
+        }
+      }
+      void renglonesInve(int [][] mat,int [][] nvaMat)
+      {
+             for(int i=0,m=mat.length-1;i<mat.length;i++,m--)
+             {
+                  for(int k=0;k<mat[i].length;k++)
+                  {
+                      nvaMat[m][k]=mat[i][k];
+                  }
+             }
+      }
+      void matrizSimetrica(int [][] mat)
+      {
+          boolean ban=true;
+          if(mat.length==mat[0].length)
+          {
+              for(int i=0;i<mat.length;i++)
+              {   
+                 for(int k=0;k<mat.length;k++)
+                 {    
+                    if(mat[i][k]!=mat[k][i])
+                        ban=false;
+                 }   
+              }
+          }
+          else
+              ban=false;
+          if(ban)
+              System.out.println("La matriz es simétrica");
+          else
+              System.out.println("La matriz NO es simétrica");
+      }
+      void triangularInferios(int [][] mat, int[][] nvaMat)
+      {
+             for(int i=0;i<mat.length;i++)
+             {
+                  for(int k=0;k<mat[i].length;k++)
+                  {
+                      nvaMat[i][k]=mat[i][k];
+                  }
+             }  
+             for(int i=0;i<mat.length;i++)
+             {
+                  for(int k=i+1;k<mat[i].length;k++)
+                  {
+                      nvaMat[i][k]=-9;
+                  }
+             }      
+
+      }
+      void maxMin(int[][] mat)
+      {
+          int max,min,rma,cma,rmi,cmi;
+          max=min=mat[0][0];//5
+          rma=rmi=cma=cmi=0;
+   
+         for(int i=0;i<mat.length;i++)
+         {
+            for(int k=0;k<mat[i].length;k++)
+            {
+               if(max<=mat[i][k])
+               {
+                  max=mat[i][k];
+                  rma=i;
+                  cma=k;
+               }
+               if(min>=mat[i][k])
+               {
+                  min=mat[i][k];
+                  rmi=i;
+                  cmi=k;
+               }
+           }
+        } 
+        System.out.println("El maximo es "+max+" renglon "+rma+" columna "+cma);
+        System.out.println("El inimo es "+min+" renglon "+rmi+" columna "+cmi);
+ 
+      }
+      
+     void triangularSuperior(int [][] mat, int[][] nvaMat)
+      {
+             for(int i=0;i<mat.length;i++)
+             {
+                  for(int k=0;k<mat[i].length;k++)
+                  {
+                      nvaMat[i][k]=mat[i][k];
+                  }
+             }  
+             for(int i=1;i<mat.length;i++)
+             {
+                  for(int k=0;k<i;k++)
+                  {
+                      nvaMat[i][k]=-5;
+                  }
+             }      
+
+      }
+      void maximosColumna(int [][] mat)
+      {
+         int max,r;
+         for(int i=0;i<mat[0].length;i++)
+         {
+            max=mat[0][i];
+            r=0;
+            for(int k=0;k<mat.length;k++)
+            {
+               if(max<mat[k][i])
+               {
+                  max=mat[k][i];
+                  r=k;
+               }
+            }
+            System.out.println("El valor maximo de columna "+i+"es "+max+" renglón "+r);
+        }
+      }
+}
+

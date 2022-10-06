@@ -1,0 +1,64 @@
+package javaapplication48;
+
+import javax.swing.JOptionPane;
+
+/**
+ *
+ * @author LPB-20
+ */
+public class JavaApplication48 {
+
+    
+    public static void main(String[] args) {
+        int [][] arr;
+        arr=leermatriz();
+        proceso(arr);
+        imprimirmatriz(arr);
+                   
+    }
+    
+    public static int [][] leermatriz()
+{
+int filas=Integer.parseInt(JOptionPane.showInputDialog("Digita las filas de la matriz"));
+int columnas=Integer.parseInt(JOptionPane.showInputDialog("Digita las columnas de la matriz"));
+int matriz[][]=new int[filas][columnas];
+if(matriz.length==matriz[0].length){
+        JOptionPane.showMessageDialog(null, "Es cuadrada");
+}else{
+        JOptionPane.showMessageDialog(null, "No es cuadrada");
+}
+        return matriz;
+        
+}
+    public static void proceso(int[][] mat)
+    {
+        int in=1;
+        for(int i=0;i<mat.length;i++)
+        {
+            for(int j=0;j<mat[i].length;j++)
+            {
+                mat[i][j]=in;
+                in+=1;
+            }
+        }
+ 
+    }
+    
+  
+    public static void imprimirmatriz(int[][]mat)
+{
+    String s="matriz\n";
+
+        for(int i=0;i<mat.length;i++)
+        {
+            for(int k=0;k<mat[i].length;k++)
+            {
+                s=s+mat[i][k] + " ";
+            }
+        s=s+"\n";
+        }
+        JOptionPane.showMessageDialog(null,s);
+}
+    
+
+}

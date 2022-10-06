@@ -1,0 +1,38 @@
+package probfaro;
+
+import java.util.Scanner;
+
+public class ProbFaro 
+    {
+    float a_distMontana;
+    float a_altumontana;
+    float a_altuFaro;
+    float a_angulo;
+    float v_altuTotal;
+    public static void main(String[] args) {
+ProbFaro objeto=new ProbFaro();
+objeto.m_ingrDatos();
+objeto.m_mostAltura();
+objeto.m_calcAltura();
+    }
+    void m_ingrDatos()
+    {
+        Scanner  v_teclado = new Scanner (System.in);
+        System.out.println("ingrese distancia a la montana");
+        a_distMontana= v_teclado.nextFloat();
+        System.out.println("ingresa la altura de la montana");
+        a_altumontana=v_teclado.nextFloat();
+        System.out.println("ingresa el angulo del faro");
+        a_angulo=v_teclado.nextFloat();
+    }
+void m_mostAltura()
+{
+        m_calcAltura();
+    System.out.println("el faro mide "+a_altuFaro);
+}
+void m_calcAltura()
+{
+    float v_altuTotal =(float)Math.tan(a_angulo)*a_distMontana;
+    a_altuFaro=v_altuTotal-a_altumontana;
+}
+}

@@ -1,0 +1,65 @@
+package regu;
+
+import java.util.Scanner;
+
+
+public class Regu 
+{
+
+  
+    public static void main(String[] args) 
+    {
+        Arreglos obj=new Arreglos();
+       
+        obj.procedimiento();
+        obj.imprimir();
+        
+    }
+}
+    class Arreglos
+    {
+        String s=" Matriz\n";
+        
+        
+        void procedimiento()
+        {
+            
+            Scanner tec=new Scanner(System.in);
+            
+            int m, n, contador=3;
+            System.out.println("Teclea el número de renglones");
+            m=tec.nextInt();
+            System.out.println("Teclea el número de columnas");
+            n=tec.nextInt();
+            int [][] matriz=new int[m][n];
+
+            for(int i=0; i<m; i++)
+            {
+                for(int k=0; k<n; k++)
+                {
+                    matriz[i][k]=contador;
+                    contador+=3;
+
+                }
+
+            }
+
+            for(int i=0; i<m; i++)
+            {
+                for(int k=0; k<n; k++)
+                {
+                    s=s+matriz[i][k]+" ";
+                }
+                s=s+"\n";
+            }
+            
+           
+           
+        }
+        
+        void imprimir()
+        {
+             System.out.println(s);
+        }
+    }   
+    
