@@ -57,7 +57,7 @@ public class Clase10noviembre {
         //AQUI VAMOS A PROBAR CADA FUNCION UWU
         Matrices objeto1 = new Matrices();
         JOptionPane.showMessageDialog(null, "Bienvenido a la calculadora de matrices, vamos a crear la primer matriz");
-        //Creando y leyendo la primera matriz
+        /*//Creando y leyendo la primera matriz
         int[][] matriz1;
         matriz1 = objeto1.leerMatriz();
         //JOptionPane.showMessageDialog(null, objeto1.mostrarMatriz(matriz1));
@@ -108,7 +108,14 @@ public class Clase10noviembre {
         arregloParaTransponer = objeto1.leerMatriz();
         JOptionPane.showMessageDialog(null, objeto1.mostrarMatriz(arregloParaTransponer));
         arregloParaTransponer = objeto1.obtenerMatrizTranspuesta(arregloParaTransponer);
-        JOptionPane.showMessageDialog(null, "RESULTADO MATRIZ TRANSPUESTA:\n" + objeto1.mostrarMatriz(arregloParaTransponer));
+        JOptionPane.showMessageDialog(null, "RESULTADO MATRIZ TRANSPUESTA:\n" + objeto1.mostrarMatriz(arregloParaTransponer));*/
+        
+        int [][] arregloParaOrdenarPorFilas;
+        arregloParaOrdenarPorFilas = objeto1.leerMatriz();
+        JOptionPane.showMessageDialog(null, objeto1.mostrarMatriz(arregloParaOrdenarPorFilas));
+        objeto1.ordenarArregloMenorAMayorPorRenglon(arregloParaOrdenarPorFilas);
+        JOptionPane.showMessageDialog(null, objeto1.mostrarMatriz(arregloParaOrdenarPorFilas));
+    
     }
 
 }
@@ -350,4 +357,42 @@ class Matrices {
 
     }
 
+    //Metodo para ordenar un arreglo de menor a mayor por cada renglon
+    void ordenarArregloMenorAMayorPorRenglon(int[][] matrizAOrdenar) {
+        for (int renglon = 0; renglon < matrizAOrdenar.length; renglon++) {
+            //Acomodando cada renglon por metodo Burbuja
+            //Declarando un array de una dimension de longitud n columnas de acuerdo renglon original
+            int[] arregloBurbuja = new int[matrizAOrdenar[renglon].length];
+
+            //Llenando el arreglo de una dimension de acuerdo al renglon que se esta iterando
+            int posicion = 0;
+            for (int columna = 0; columna < matrizAOrdenar[renglon].length; columna++) {
+                arregloBurbuja[posicion] = matrizAOrdenar[renglon][columna];
+                posicion++;
+            }
+
+            //Ordenando el renglon con metodo burbuja
+            int variableAuxiliar;
+            //Ordenandolos elementos
+            for (int pasadas = 1; pasadas < arregloBurbuja.length; pasadas++) {
+                for (int comparaciones = 1; comparaciones <= arregloBurbuja.length - 1; comparaciones++) {
+
+                    if (arregloBurbuja[comparaciones - 1] > arregloBurbuja[comparaciones]) {
+                        variableAuxiliar = arregloBurbuja[comparaciones - 1];
+                        arregloBurbuja[comparaciones - 1] = arregloBurbuja[comparaciones];
+                        arregloBurbuja[comparaciones] = variableAuxiliar;
+                    }
+                } //AQUI TERMINA CICLO DE COMPARACIONES      
+            } //AQUI TERMINA CICLO DE PASADAS
+
+            //Asignando los valores al renglon del arreglo original
+            posicion = 0;
+            for (int columna = 0; columna < matrizAOrdenar[renglon].length; columna++) {
+                matrizAOrdenar[renglon][columna] = arregloBurbuja[posicion];
+                posicion++;
+            }
+
+        }
+
+    }
 }
