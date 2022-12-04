@@ -57,7 +57,7 @@ public class Clase10noviembre {
         //AQUI VAMOS A PROBAR CADA FUNCION UWU
         Matrices objeto1 = new Matrices();
         JOptionPane.showMessageDialog(null, "Bienvenido a la calculadora de matrices, vamos a crear la primer matriz");
-        /*//Creando y leyendo la primera matriz
+        //Creando y leyendo la primera matriz
         int[][] matriz1;
         matriz1 = objeto1.leerMatriz();
         //JOptionPane.showMessageDialog(null, objeto1.mostrarMatriz(matriz1));
@@ -108,14 +108,19 @@ public class Clase10noviembre {
         arregloParaTransponer = objeto1.leerMatriz();
         JOptionPane.showMessageDialog(null, objeto1.mostrarMatriz(arregloParaTransponer));
         arregloParaTransponer = objeto1.obtenerMatrizTranspuesta(arregloParaTransponer);
-        JOptionPane.showMessageDialog(null, "RESULTADO MATRIZ TRANSPUESTA:\n" + objeto1.mostrarMatriz(arregloParaTransponer));*/
+        JOptionPane.showMessageDialog(null, "RESULTADO MATRIZ TRANSPUESTA:\n" + objeto1.mostrarMatriz(arregloParaTransponer));
         
         int [][] arregloParaOrdenarPorFilas;
         arregloParaOrdenarPorFilas = objeto1.leerMatriz();
         JOptionPane.showMessageDialog(null, objeto1.mostrarMatriz(arregloParaOrdenarPorFilas));
         objeto1.ordenarArregloMenorAMayorPorRenglon(arregloParaOrdenarPorFilas);
         JOptionPane.showMessageDialog(null, objeto1.mostrarMatriz(arregloParaOrdenarPorFilas));
-    
+
+        //Matriz del cuadrado magico
+        /*int[][] matrizParaCuadrado;
+        matrizParaCuadrado = objeto1.asignarDimensionesAArreglo();
+        objeto1.rellenarCuadroMagico(matrizParaCuadrado);*/
+
     }
 
 }
@@ -395,4 +400,31 @@ class Matrices {
         }
 
     }
+
+    //Metodo CUADRO MAGICO
+    /*void rellenarCuadroMagico(int[][] matrizParaMagico) {
+        if((matrizParaMagico.length==matrizParaMagico[0].length) & (matrizParaMagico.length%2!=0)){
+            int numero = 1;
+            int renglonInicial =0;
+            int columna = (matrizParaMagico.length/2);
+            int renglonAnterior = matrizParaMagico.length - 1;
+            int renglonSiguiente = 0;
+            int columnaAnterior = 0;
+            
+            
+            boolean bandera =true;
+            do{
+                
+                if (bandera = true){
+                    if (renglon){
+                        
+                    }
+                   matrizParaMagico[renglonInicial][]=numero;
+                }
+                
+                numero++;
+            }while(numero <= matrizParaMagico.length*matrizParaMagico.length);
+        }
+        
+    }*/
 }
