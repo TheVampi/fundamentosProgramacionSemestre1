@@ -19,6 +19,8 @@ public class Clase10noviembre {
 ⠄⠄⠄⠄⠈⠛⢿⣿⣿⣿⠁⠞⢿⣿⣿⡄⢿⣿⡇⣸⣿⣿⠿⠛⠁⠄⠄⠄⠄⠄
 ⠄⠄⠄⠄⠄⠄⠄⠉⠻⣿⣿⣾⣦⡙⠻⣷⣾⣿⠃⠿⠋⠁⠄⠄⠄⠄⠄⢀⣠⣴
 ⣿⣿⣿⣶⣶⣮⣥⣒⠲⢮⣝⡿⣿⣿⡆⣿⡿⠃⠄⠄⠄⠄⠄⠄⠄⣠⣴⣿⣿⣿
+    
+    
    LIBRERIAS DE MATRICES uwu
 ⠀⠀⠘⡀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⡜⠀⠀⠀
 ⠀⠀⠀⠑⡀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⡔⠁⠀⠀⠀
@@ -115,6 +117,11 @@ public class Clase10noviembre {
         JOptionPane.showMessageDialog(null, objeto1.mostrarMatriz(arregloParaOrdenarPorFilas));
         objeto1.ordenarArregloMenorAMayorPorRenglon(arregloParaOrdenarPorFilas);
         JOptionPane.showMessageDialog(null, objeto1.mostrarMatriz(arregloParaOrdenarPorFilas));
+        
+        //Lenando matriz con random
+        int [][] matrizParaLlenarConRandom;
+        matrizParaLlenarConRandom = objeto1.leerMatrizYLlenarRandom();
+        JOptionPane.showMessageDialog(null, objeto1.mostrarMatriz(matrizParaLlenarConRandom));
 
         //Matriz del cuadrado magico
         /*int[][] matrizParaCuadrado;
@@ -127,6 +134,7 @@ public class Clase10noviembre {
 
 class Matrices {
 
+    //Asignar dimensiones a un arreglo
     int[][] asignarDimensionesAArreglo() {
         //Pidiendo las dimensiones del arreglo
         int filas = Integer.parseInt(JOptionPane.showInputDialog("Ingresa el numero de filas"));
@@ -151,6 +159,25 @@ class Matrices {
         for (int filaParaLlenar = 0; filaParaLlenar < unArreglo.length; filaParaLlenar++) {
             for (int columnaParaLlenar = 0; columnaParaLlenar < unArreglo[0].length; columnaParaLlenar++) {
                 unArreglo[filaParaLlenar][columnaParaLlenar] = Integer.parseInt(JOptionPane.showInputDialog("Ingresa el valor de la fila " + (filaParaLlenar + 1) + " columna " + (columnaParaLlenar + 1)));
+            }
+        }
+        return (unArreglo);
+    }
+    
+    //Metodo para llenar matrices con valores random de tipo entero con rango n a n
+    int[][] leerMatrizYLlenarRandom() {
+        int filas, columnas;
+        //Pidiendo las dimensiones del arreglo
+        filas = Integer.parseInt(JOptionPane.showInputDialog("Ingresa el numero de filas"));
+        columnas = Integer.parseInt(JOptionPane.showInputDialog("Ingresa el numero de columnas"));
+
+        //Creando el arreglo
+        int[][] unArreglo = new int[filas][columnas];
+
+        //Llenando con datos
+        for (int filaParaLlenar = 0; filaParaLlenar < unArreglo.length; filaParaLlenar++) {
+            for (int columnaParaLlenar = 0; columnaParaLlenar < unArreglo[0].length; columnaParaLlenar++) {
+                unArreglo[filaParaLlenar][columnaParaLlenar] = (int) (Math.random() * (10+1) + (0)); //Math.random() * (valor maximo + 1) + (valor minimo)
             }
         }
         return (unArreglo);
